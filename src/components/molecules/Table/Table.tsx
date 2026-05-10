@@ -68,11 +68,7 @@ TableBody.displayName = 'TableBody';
 const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTMLTableRowElement>>(({ className, ...props }, ref) => (
 	<tr
 		ref={ref}
-		className={cn(
-			'border-b border-[#E2E8F0] h-[36px] transition-colors hover:bg-muted/50',
-			'align-middle',
-			className,
-		)}
+		className={cn('border-b border-[#E2E8F0] h-[36px] transition-colors hover:bg-muted/50', 'align-middle', className)}
 		{...props}
 	/>
 ));
@@ -168,7 +164,7 @@ const FlexpriceTable: FC<FlexpriceTableProps<any>> = ({
 		}
 
 		if (onCellClick) {
-			e.stopPropagation(); 
+			e.stopPropagation();
 			onCellClick(row, e);
 		}
 	};

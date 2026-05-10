@@ -16,18 +16,18 @@
  */
 
 export interface QueryConfig {
-  staleTime: number;
-  gcTime: number;
+	staleTime: number;
+	gcTime: number;
 }
 
 export interface QueryConfigOverride {
-  staleTime?: number;
-  gcTime?: number;
+	staleTime?: number;
+	gcTime?: number;
 }
 
 const GLOBAL_DEFAULTS: QueryConfig = {
-  staleTime: 5 * 60 * 1000,  // 5 minutes — data is fresh, no refetch on mount
-  gcTime: 10 * 60 * 1000,    // 10 minutes — keep in cache after unmount
+	staleTime: 5 * 60 * 1000, // 5 minutes — data is fresh, no refetch on mount
+	gcTime: 10 * 60 * 1000, // 10 minutes — keep in cache after unmount
 };
 
 /**
@@ -38,19 +38,18 @@ const GLOBAL_DEFAULTS: QueryConfig = {
  * - `STATIC`   — 30 min stale, 60 min gc; for rarely-changing data like plan definitions
  */
 export const QUERY_PRESETS = {
-  REALTIME: {
-    staleTime: 0,
-    gcTime: 0,
-  },
-  DEFAULT: {
-    ...GLOBAL_DEFAULTS,
-  },
-  STATIC: {
-    staleTime: 30 * 60 * 1000,  // 30 minutes
-    gcTime: 60 * 60 * 1000,     // 60 minutes
-  },
+	REALTIME: {
+		staleTime: 0,
+		gcTime: 0,
+	},
+	DEFAULT: {
+		...GLOBAL_DEFAULTS,
+	},
+	STATIC: {
+		staleTime: 30 * 60 * 1000, // 30 minutes
+		gcTime: 60 * 60 * 1000, // 60 minutes
+	},
 } as const satisfies Record<string, QueryConfig>;
-
 
 /**
  * Creates a query config object by merging global defaults with any
@@ -67,10 +66,9 @@ export const QUERY_PRESETS = {
  * useQuery({ ...createQueryConfig(QUERY_PRESETS.STATIC), queryKey: ['plans'], queryFn: fetchPlans })
  */
 export const createQueryConfig = (override: QueryConfigOverride = {}): QueryConfig => ({
-  ...GLOBAL_DEFAULTS,
-  ...override,
+	...GLOBAL_DEFAULTS,
+	...override,
 });
-
 
 /**
  * Returns `defaultOptions` for a TanStack QueryClient, applying global
@@ -82,10 +80,10 @@ export const createQueryConfig = (override: QueryConfigOverride = {}): QueryConf
  * })
  */
 export const getQueryClientDefaults = () => ({
-  queries: {
-    staleTime: GLOBAL_DEFAULTS.staleTime,
-    gcTime: GLOBAL_DEFAULTS.gcTime,
-    retry: 1,
-    refetchOnWindowFocus: false,
-  },
+	queries: {
+		staleTime: GLOBAL_DEFAULTS.staleTime,
+		gcTime: GLOBAL_DEFAULTS.gcTime,
+		retry: 1,
+		refetchOnWindowFocus: false,
+	},
 });
