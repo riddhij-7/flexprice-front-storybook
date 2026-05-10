@@ -1,4 +1,4 @@
-# FlexPrice Component Library — Storybook
+# FlexPrice Component Library Storybook
 
 A hosted Storybook component library extracted from the [FlexPrice](https://admin.flexprice.io) frontend, built as part of the take-home assignment.
 
@@ -9,7 +9,7 @@ A hosted Storybook component library extracted from the [FlexPrice](https://admi
 ## Approach
 
 ### Exploration First
-Before writing a single story, I signed up at `admin.flexprice.io` and walked through every page — Dashboard, Plans, Customers, Subscriptions, Invoices, Credits, Revenue. I noted every distinct UI pattern: status chips, metric KPI cards, empty states, data tables, the sidebar nav structure, and pricing tier displays.
+Before writing a single story, I signed up at `admin.flexprice.io` and walked through every page, Dashboard, Plans, Customers, Subscriptions, Invoices, Credits, Revenue. I noted every distinct UI pattern: status chips, metric KPI cards, empty states, data tables, the sidebar nav structure, and pricing tier displays.
 
 I then explored `src/components/` to map what already existed vs. what needed to be built from scratch.
 
