@@ -2,7 +2,7 @@
 
 A hosted Storybook component library extracted from the [FlexPrice](https://admin.flexprice.io) frontend, built as part of the take-home assignment.
 
-**Live Storybook →** [url](https://flexprice-front-storybook-ten.vercel.app/)
+**Live Storybook →** [flexprice-front-storybook](https://flexprice-front-storybook-ten.vercel.app/)
 
 ---
 
