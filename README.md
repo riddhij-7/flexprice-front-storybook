@@ -52,17 +52,17 @@ This is the same pattern used by production design systems like PostHog and Radi
 
 ### Story Quality
 Every story includes:
-- **Default** — happy path
-- **Variants** — all meaningful visual states
-- **Controls** — `argTypes` so reviewers can tweak props live
-- **JSDoc** — props and usage documented
-- **Play functions** — interaction tests on interactive components (Button, Checkbox, Dialog, Select)
+- **Default**: happy path
+- **Variants**: all meaningful visual states
+- **Controls**: `argTypes` so reviewers can tweak props live
+- **JSDoc**: props and usage documented
+- **Play functions**: interaction tests on interactive components (Button, Checkbox, Dialog, Select)
 
 ### Tests
-- **5 utility function suites** — `formatNumber`, `formatCompactNumber`, `formatBillingPeriodForPrice`, `getPriceTypeLabel`, `toSentenceCase`
-- **2 component render test suites** — `Button` and `Chip` with click interaction tests
+- **5 utility function suites**: `formatNumber`, `formatCompactNumber`, `formatBillingPeriodForPrice`, `getPriceTypeLabel`, `toSentenceCase`
+- **2 component render test suites**: `Button` and `Chip` with click interaction tests
 
-### Advanced Challenge C — Query Config
+### Advanced Challenge C: Query Config
 Built a `createQueryConfig` utility with:
 - Global defaults (`staleTime: 5min`, `gcTime: 10min`)
 - Per-call overrides
@@ -70,7 +70,7 @@ Built a `createQueryConfig` utility with:
 - Vitest tests documenting caching behaviour
 
 ### Design Tokens
-Stories use the app's existing Tailwind token system (`bg-primary`, `text-destructive`, `border`, `muted`) rather than hardcoded hex values. The handful of hardcoded values that remain (`#092E44`, `#E9E9E9`) match what the original components themselves use — staying consistent with the codebase rather than diverging.
+Stories use the app's existing Tailwind token system (`bg-primary`, `text-destructive`, `border`, `muted`) rather than hardcoded hex values. The handful of hardcoded values that remain (`#092E44`, `#E9E9E9`) match what the original components themselves use, staying consistent with the codebase rather than diverging.
 
 ---
 
