@@ -1,8 +1,8 @@
 # FlexPrice Component Library — Storybook
 
-A hosted Storybook component library extracted from the [FlexPrice](https://admin.flexprice.io) frontend, built as part of the Frontend Intern take-home assignment.
+A hosted Storybook component library extracted from the [FlexPrice](https://admin.flexprice.io) frontend, built as part of the take-home assignment.
 
-**Live Storybook →** [your-vercel-url-here]
+**Live Storybook →** [url](https://flexprice-front-storybook-ten.vercel.app/)
 
 ---
 
