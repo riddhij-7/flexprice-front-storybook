@@ -2,7 +2,6 @@ import * as React from 'react';
 import { FC, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
-// Types and Interfaces
 interface BaseColumnData<T> {
 	title?: ReactNode;
 	flex?: number;
@@ -37,26 +36,18 @@ export interface FlexpriceTableProps<T> {
 	showEmptyRow?: boolean;
 	hideBottomBorder?: boolean;
 	variant?: 'default' | 'no-bordered';
-	/** Applied to the inner `<table>` (e.g. `table-fixed` for predictable column widths). */
 	tableClassName?: string;
 }
 
-// Helper Functions
 const isInteractiveElement = (element: HTMLElement | null): boolean => {
 	if (!element) return false;
 
-	// Check for data-interactive attribute
 	if (element.getAttribute('data-interactive') === 'true') return true;
-
-	// Check for interactive elements
 	const interactiveElements = ['button', 'a', 'input', 'select', 'textarea'];
 	if (element.tagName && interactiveElements.includes(element.tagName.toLowerCase())) return true;
-
-	// Check parent elements
 	return element.closest('[data-interactive="true"]') !== null;
 };
 
-// Table structure components
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(({ className, ...props }, ref) => (
 	<div className='relative w-full overflow-auto'>
 		<table ref={ref} className={cn('w-full caption-bottom text-sm', className)} {...props} />
@@ -79,7 +70,7 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
 		ref={ref}
 		className={cn(
 			'border-b border-[#E2E8F0] h-[36px] transition-colors hover:bg-muted/50',
-			'align-middle', // Vertically align middle
+			'align-middle',
 			className,
 		)}
 		{...props}
@@ -123,7 +114,6 @@ const TableCell = React.forwardRef<
 ));
 TableCell.displayName = 'TableCell';
 
-// Cell Content Components
 const CellContent: FC<{
 	row: any;
 	column: ColumnData<any>;
@@ -151,7 +141,6 @@ const CellContent: FC<{
 	return <div className={contentWrapperClasses}>{row[name]}</div>;
 };
 
-// Main FlexpriceTable Component
 const FlexpriceTable: FC<FlexpriceTableProps<any>> = ({
 	onRowClick,
 	columns,
@@ -164,7 +153,6 @@ const FlexpriceTable: FC<FlexpriceTableProps<any>> = ({
 	const handleRowClick = (row: any, e: React.MouseEvent) => {
 		const target = e.target as HTMLElement;
 
-		// Don't trigger row click if the click was on or within an interactive element
 		if (isInteractiveElement(target)) {
 			return;
 		}
@@ -175,13 +163,12 @@ const FlexpriceTable: FC<FlexpriceTableProps<any>> = ({
 	const handleCellClick = (e: React.MouseEvent, row: any, onCellClick?: (row: any, e: React.MouseEvent) => void) => {
 		const target = e.target as HTMLElement;
 
-		// Don't trigger cell click if the click was on or within an interactive element
 		if (isInteractiveElement(target)) {
 			return;
 		}
 
 		if (onCellClick) {
-			e.stopPropagation(); // Stop row click if cell has click handler
+			e.stopPropagation(); 
 			onCellClick(row, e);
 		}
 	};
